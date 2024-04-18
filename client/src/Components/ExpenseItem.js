@@ -80,7 +80,7 @@ function ExpenseItem(props) {
     <tr className="items">
       <td>{description}</td>
       <td>
-        <select value={selectedCategory} onChange={handleCategoryChange}>
+        <select value={selectedCategory} onChange={handleCategorySelection}>
           <option value="basic">Basic</option>
           <option value="leisure">Leisure</option>
           <option value="savings">Savings</option>
