@@ -1,6 +1,6 @@
 .IncomeContainer {
-  background-color: hsl(210, 68%, 79%);
-  color: #0c3c10;
+  background-color: hsla(210, 5%, 31%, 0.483);
+  color: #414441;
   max-height: 200px;
   width: 280px;
   height: 140px;
@@ -23,7 +23,7 @@
   display: inline-block;
   margin-top: 15px;
   font-size: 18px;
-  color: #434543;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 .IncomeContainer .text {
@@ -31,7 +31,7 @@
   padding-left: 20px;
   font-size: 20px;
   font-weight: bold;
-  color: #061065;
+  color: #f7f8ff;
 }
 @media screen and (max-width: 839px) {
   .IncomeContainer .text {
@@ -53,7 +53,7 @@
   border: 1px solid #f6f5f5;
   box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #540000;
+  color: #000000;
   cursor: pointer;
   /* justify-content: center;
   align-items: center; */
@@ -70,8 +70,8 @@
 }
 .IncomeContainer button:hover,
 .IncomeContainer button:focus {
-  background-color: #eacab3;
-  color: #774c2c;
+  background-color: #f2ecec41;
+  color: #474f53;
 }
 
 .IncomeContainer button:focus {
@@ -79,7 +79,7 @@
 }
 
 .IncomeContainer button:active {
-  background-color: #e4bda0;
+  background-color: #fefefe;
   box-shadow: none;
-  color: #774c2c;
+  color: #ffffff;
 }

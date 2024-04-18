@@ -1,16 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-* {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  
-}
-
 body {
   margin: 0;
-  padding: 0;
+  font-family: 'Cormorant Infant';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('leila.jpg');
+  background-size: cover;
+  background-position: center;
 }
-
 .main-content {
   margin-left: 200px;
   padding: 20px;
@@ -20,7 +16,7 @@ body {
   
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
-  background-color: #dcdee0;
+  background-color: #1b2733;
 }
 
 header h1 {
@@ -29,6 +25,7 @@ header h1 {
   margin-left: 20px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .summaryDiv {
@@ -43,7 +40,7 @@ header h1 {
   }
 }
 .expensesContainer {
-  background-color: #9dbee5;
+  background-color: #3b453c69;
   padding: 5px;
   border-radius: 10px;
   margin: 0px 0;
@@ -60,9 +57,9 @@ header h1 {
 
 .expenses {
   margin: 5px 5px;
-  border: 1px solid #ddd; 
+  border: 1px solid #3e3b3b; 
   border-radius: 10px;
-  background-color: white;
+  background-color: 3b453c69;
   padding: 10px 10px;
 }
 
@@ -70,6 +67,7 @@ header h1 {
   margin-bottom: 20px;
   font-size: 25px;
   margin-top: 0px;
+  color: white;
 }
 
 .inputDiv {
@@ -124,7 +122,7 @@ header h1 {
   margin: 10px 65px 10px 65px;
   border-width: 0px;
   border-radius: 10px;
-  background-color: white;
+  background-color: rgba(84, 84, 84, 0.397);
   padding: 30px 20px 20px 20px;
   direction: flex;
   flex-direction: row;
@@ -134,6 +132,7 @@ header h1 {
 .expensesDiv,
 .historyDiv {
   padding-top: 30px;
+  color: white;
 }
 
 .expensesDiv h2,
@@ -142,7 +141,7 @@ header h1 {
 }
 
 .inputDiv {
-  color: #061065;
+  color: #faededf5;
   font-size: 24px;
   font-weight: 600;
   display: flex;
@@ -152,9 +151,9 @@ header h1 {
 
 .inputDiv input {
   /* background-color: #d2e7f3; */
-  border: 2px solid #7aa7c7;
+  border: 2px solid #2b2b2b;
   border-radius: 10px;
-  border-color: #1d4e70;
+  border-color: #121213a2;
   border-width: 2px;
   border-style: solid;
   margin: 2px;
@@ -168,27 +167,27 @@ header h1 {
 
 .inputDiv input:hover {
   border-width: 2px;
-  border-color: #b8e0f7;
+  border-color: #9cad9a;
 }
 
 .inputDiv input:focus {
   border-width: 2px;
-  border-color: #061065;
-  color: #061065;
+  border-color: #6a1616;
+  color: #403a3a;
 }
 
 .expenses button {
-  background-color: #d2e7f3;
+  background-color: #b0b2ade6;
   height: 40px;
   width: 120px;
   /* margin-top: 30px; */
   margin-left: 15px;
   /* margin-bottom: 30px; */
   border-radius: 10px;
-  border: 2px solid #7aa7c7;
+  border: 2px solid #585150;
   box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #39739d;
+  color: #f2ecec99;
   cursor: pointer;
   display: inline;
   font-size: 24px;
@@ -200,18 +199,18 @@ header h1 {
 
 .expenses button:hover,
 .expenses button:focus {
-  background-color: #b3d3ea;
-  color: #2c5777;
+  background-color: #67d461;
+  color: #464a4d;
 }
 
 .expenses button:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(252, 254, 255, 0.15);
 }
 
 .expenses button:active {
-  background-color: #a0c7e4;
+  background-color: #413f3f;
   box-shadow: none;
-  color: #2c5777;
+  color: #3b3938;
 }
 /* 
 .history thead {
@@ -273,11 +272,11 @@ header h1 {
 .history table {
   width: 70%; 
   margin-right: 20px; /* Add some spacing between the table and chart */
-  border: 1px solid #ddd;
+  border: 1px solid #6c0707;
   border-collapse: collapse;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 6px -6px #7aa7c7;
+  box-shadow: 0 4px 6px -6px #ffffff;
 }
 
 .history th, .history td {
@@ -286,8 +285,8 @@ header h1 {
 }
 
 .history th {
-  background-color: #061065;
-  color: white;
+  background-color: #fcfbfbf1;
+  color: rgba(14, 13, 13, 0.774);
 }
 
 
@@ -297,7 +296,7 @@ header h1 {
   padding: 20px;
   border-radius: 10px;
   background-color: #f4f4f4;
-  box-shadow: 0 4px 6px -6px #7aa7c7;
+  box-shadow: 0 4px 6px -6px #3b3232;
 }
 
 /* Updated styling for the search bar in History */
@@ -335,8 +334,8 @@ header h1 {
 .historyDiv .history .delete-button {
   margin-top: 8px;
   margin-right: 0px;
-  background-color: #ff6262; 
-  color: white; /* White text color */
+  background-color: #f5f2f2; 
+  color: rgba(10, 10, 10, 0.808); /* White text color */
   padding: 8px 15px; 
   border: none;
   border-radius: 5px;
@@ -346,7 +345,7 @@ header h1 {
 }
 
 .historyDiv .history .delete-button:hover {
-  background-color: #ff4040; /* Darker red on hover */
+  background-color: #b41d1d; /* Darker red on hover */
 }
 
 .expenseChartContainer {
@@ -354,7 +353,7 @@ header h1 {
   padding: 20px;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0 4px 6px -6px #7aa7c7;
+  box-shadow: 0 4px 6px -6px #81392c;
 }
 
 @media screen and (max-width: 584px) {
@@ -364,8 +363,8 @@ header h1 {
 }
 
 .download-button {
-  background-color: #61dafb;
-  color: white;
+  background-color: #2d27275d;
+  color: rgb(255, 247, 247);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -378,7 +377,7 @@ header h1 {
 
 
 .download-button:hover {
-  background-color: #4fa3d1;
+  background-color: #1f1c1cad;
 }
 
 
@@ -396,3 +395,4 @@ header h1 {
     
   }
 }
+
