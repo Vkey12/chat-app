@@ -1,0 +1,85 @@
+.IncomeContainer {
+  background-color: hsl(210, 68%, 79%);
+  color: #0c3c10;
+  max-height: 200px;
+  width: 280px;
+  height: 140px;
+  border-radius: 10px;
+  font-size: 23.5px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+@media screen and (max-width: 839px) {
+  .IncomeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.IncomeContainer .text h3 {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #434543;
+  margin-bottom: 20px;
+}
+.IncomeContainer .text {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #061065;
+}
+@media screen and (max-width: 839px) {
+  .IncomeContainer .text {
+    padding: 0 5px 0 5px;
+  }
+}
+.IncomeContainer .text div h2 {
+  display: block;
+  margin: 0px;
+}
+.IncomeContainer button {
+  display: inline-block;
+  margin: 25px 0 25px 0;
+  padding-right: 5px;
+  background-color: #fafafa;
+  height: 20px;
+  width: 60px;
+  border-radius: 3px;
+  border: 1px solid #f6f5f5;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #540000;
+  cursor: pointer;
+  /* justify-content: center;
+  align-items: center; */
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+
+  
+}
+@media screen and (max-width: 839px) {
+  .IncomeContainer button {
+    margin: 0 15px 2px 15px;
+  }
+}
+.IncomeContainer button:hover,
+.IncomeContainer button:focus {
+  background-color: #eacab3;
+  color: #774c2c;
+}
+
+.IncomeContainer button:focus {
+  box-shadow: 0 0 0 2px rgba(255, 106, 0, 0.15);
+}
+
+.IncomeContainer button:active {
+  background-color: #e4bda0;
+  box-shadow: none;
+  color: #774c2c;
+}

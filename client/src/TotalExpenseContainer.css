@@ -1,0 +1,27 @@
+.TotalExpenseContainer {
+  background-color: #edc7c7;
+  color: #540000;
+  text-align: left;
+  max-height: 200px;
+  width: 280px;
+  height: 140px;
+  border-radius: 10px;
+  font-size: 23.5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  padding-left: 20px;
+}
+
+.TotalExpenseContainer h3 {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #434543;
+  margin-bottom: 20px;
+}
+
+.TotalExpenseContainer div h2 {
+  text-align: left;
+  padding-left: 20px;
+  color: #061065;
+}
