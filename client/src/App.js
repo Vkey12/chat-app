@@ -15,52 +15,55 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
-
 import "./sidebar.css";
 
 function App() {
-  // State to store expenses
   const [expenses, setExpenses] = useState([]);
-  // State to store income
   const [income, setIncome] = useState(90000);
-  // State to store filtered expenses
   const [searchTerm, setSearchTerm] = useState("");
-  // State to store filtered expenses
   const [filteredExpenses, setFilteredExpenses] = useState([]);
+  const [isSidebarActive, setIsSidebarActive] = useState(false);
 
-  // Fetch expenses data when the component mounts
   useEffect(() => {
     fetchExpensesData();
   }, []);
 
-  // Function to fetch expenses data from the server
   const fetchExpensesData = () => {
-    fetch("https://projbackend-idpk.vercel.app/expenses")
+    fetch("https://your-domain.com/transactions", {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      },
+    })
       .then((resp) => resp.json())
       .then((data) => setExpenses(data))
       .catch((error) => console.error("Error fetching expenses data:", error));
   };
 
-  // Function to add a new expense
   const addExpense = (expense) => {
-    setExpenses((prevExpenses) => [...prevExpenses, expense]);
-    alert("Expense successfully added!");
+    fetch("https://your-domain.com/transactions", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      },
+      body: JSON.stringify(expense)
+    })
+    .then(response => response.json())
+    .then(data => {
+      setExpenses((prevExpenses) => [...prevExpenses, data]);
+      alert("Expense successfully added!");
+    })
+    .catch((error) => console.error('Error:', error));
   };
 
-  // Function to calculate total expenses
   const calculateTotalExpenses = () => {
-    return expenses.reduce(
-      (total, expense) => total + parseFloat(expense.amount),
-      0
-    );
+    return expenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
   };
 
-  // Function to handle changes in income
   const handleIncomeChange = (newIncome) => {
     setIncome(parseFloat(newIncome));
   };
 
-  // Function to handle the form submission for adding expenses
   const handleSubmit = (event) => {
     event.preventDefault();
     const description = event.target.description.value;
@@ -73,11 +76,10 @@ function App() {
       return;
     }
 
-    addExpense({ description, amount, date, category });
+    addExpense({ description, amount, date, category_id: category }); // Assuming 'category' is the ID
     event.target.reset();
   };
 
-  // Effect to filter expenses based on search term
   useEffect(() => {
     const filtered = expenses.filter((expense) =>
       Object.values(expense).some(
@@ -89,26 +91,31 @@ function App() {
     setFilteredExpenses(filtered);
   }, [expenses, searchTerm]);
 
-  // Function to handle expense deletion
-  const handleDelete = (index) => {
-    const newExpenses = [...expenses];
-    newExpenses.splice(index, 1);
-    setExpenses(newExpenses);
+  const handleDelete = (trans_id) => {
+    fetch(`https://your-domain.com/transactions/${trans_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      }
+    })
+    .then(response => {
+      if(response.ok) {
+        setExpenses(expenses.filter(expense => expense.id !== trans_id));
+      }
+    })
+    .catch((error) => console.error('Error:', error));
   };
-
-  const [isSidebarActive, setIsSidebarActive] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarActive(!isSidebarActive);
   };
-
   return (
     <div className={`app-container ${isSidebarActive ? "sidebar-active" : ""}`}>
       {/* Sidebar */}
       <div className="sidebar">
         <div className="logo-details">
           <FontAwesomeIcon icon={faMoneyBillWave} style={{ color: "white" }} />
-          <span className="logo_name">Black hole</span>
+          <span className="logo_name">COINMATE</span>
         </div>
         <ul className="nav-links">
           <li onClick={toggleSidebar}>
@@ -174,7 +181,7 @@ function App() {
         <div className="expensesContainer">
           <div className="expensesDiv">
             <div className="expenses">
-              <p className="head">ADD A NEW TRANSACTION</p>
+              <p className="head">ADD A NEW EXPENSE</p>
               <form onSubmit={handleSubmit}>
                 <div className="inputDiv">
                   <p>Description</p>
@@ -218,7 +225,7 @@ function App() {
             <input
               className="search"
               type="text"
-              placeholder="Search Transaction..."
+              placeholder="Search expenses..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -242,7 +249,7 @@ function App() {
                     category={expense.category}
                     amount={expense.amount}
                     date={expense.date}
-                    onDelete={() => handleDelete(index)}
+                    onDelete={() => handleDelete(expense.id)}
                   />
                 ))}
               </tbody>
