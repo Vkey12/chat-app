@@ -1,38 +1,450 @@
+body {
+  margin: 0;
+  font-family: 'Cormorant Infant';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('leila.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
 .App {
-  text-align: center;
+  
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: #1b2733;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1 {
+  text-align: left;
+  font-size: 1.8em;
+  margin-left: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.summaryDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 65px 0 65px;
+}
+
+@media screen and (max-width: 580px) {
+  .summaryDiv {
+    margin: 0 5px 0 5px;
   }
 }
+.expensesContainer {
+  background-color: #3b453c69;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0px 0;
+  width: 900px;
+  margin-left: 68px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.expensesDiv {
+  margin: 0px 0;
+}
+
+.expenses {
+  margin: 5px 5px;
+  border: 1px solid #3e3b3b; 
+  border-radius: 10px;
+  background-color: 3b453c69;
+  padding: 10px 10px;
+}
+
+.expenses .head {
+  margin-bottom: 20px;
+  font-size: 25px;
+  margin-top: 0px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.inputDiv {
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.inputDiv p {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+.inputDiv input::placeholder {
+  font-size: 14px;
+  align-items: center;
+}
+
+.expenses p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.inputDiv select {
+  width: 76%; 
+  padding: 10px; 
+  font-size: 16px;
+}
+
+.inputDiv input[type="date"] {
+  width: 76%; 
+  padding: 10px; 
+  font-size: 16px; 
+  align-items: right;
+}
+
+.inputDiv input[type="text"],
+.inputDiv input[type="date"] {
+
+  padding: 10px;
+  font-size: 16px;
+  text-align: left;
+}
+.inputDiv input[type="number"] {
+
+  padding: 10px;
+  font-size: 16px;
+  text-align: left; 
+}
+
+
+.history {
+  margin: 10px 65px 10px 65px;
+  border-width: 0px;
+  border-radius: 10px;
+  background-color: rgba(84, 84, 84, 0.397);
+  padding: 30px 20px 20px 20px;
+  direction: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.expensesDiv,
+.historyDiv {
+  padding-top: 30px;
+  color: white;
+}
+
+.expensesDiv h2,
+.historyDiv h2 {
+  padding-left: 65px;
+}
+
+.inputDiv {
+  color: #faededf5;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  line-height: 0%;
+}
+
+.inputDiv input {
+  /* background-color: #d2e7f3; */
+  border: 2px solid #2b2b2b;
+  border-radius: 10px;
+  border-color: #121213a2;
+  border-width: 2px;
+  border-style: solid;
+  margin: 2px;
+  padding: 2px;
+  width: 650px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  outline: none;
+}
+
+.inputDiv input:hover {
+  border-width: 2px;
+  border-color: #9cad9a;
+}
+
+.inputDiv input:focus {
+  border-width: 2px;
+  border-color: #6a1616;
+  color: #403a3a;
+}
+
+.expenses button {
+  background-color: #b0b2ade6;
+  height: 40px;
+  width: 120px;
+  /* margin-top: 30px; */
+  margin-left: 15px;
+  /* margin-bottom: 30px; */
+  border-radius: 10px;
+  border: 2px solid #585150;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #f2ecec99;
+  cursor: pointer;
+  display: inline;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 7px 0.7em;
+  text-align: center;
+  font-size: 18px;
+}
+
+.expenses button:hover,
+.expenses button:focus {
+  background-color: #67d461;
+  color: #464a4d;
+}
+
+.expenses button:focus {
+  box-shadow: 0 0 0 4px rgba(252, 254, 255, 0.15);
+}
+
+.expenses button:active {
+  background-color: #413f3f;
+  box-shadow: none;
+  color: #3b3938;
+}
+/* 
+.history thead {
+  position: relative;
+  color: #061065;
+  box-shadow: 0 4px 6px -6px #7aa7c7;
+  font-size: 23px;
+  margin: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 584px) {
+  .history thead {
+    margin: 5;
+    padding: 0;
+    font-size: 15px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.historyDiv .search {
+  background-color: white;
+  border-radius: 10px;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  margin: 5px 65px 5px 65px;
+  padding: 2px;
+  width: 342px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  outline: none;
+}
+
+.historyDiv .search:hover {
+  border-width: 2px;
+  border-color: #b8e0f7;
+}
+
+.historyDiv .search:focus {
+  border-width: 2px;
+  border-color: #061065;
+  color: #061065;
+} */
+
+
+/* DownloadButton */
+/* Updated styling for DownloadButton and ExpenseChart */
+
+/* DownloadButton */
+/* Updated styling for History table and ExpenseChart */
+
+/* History table */
+.historyDiv .history {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.history table {
+  width: 70%; 
+  margin-right: 20px; /* Add some spacing between the table and chart */
+  border: 1px solid #6c0707;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -6px #ffffff;
+}
+
+.history th, .history td {
+  padding: 15px;
+  text-align: left;
+}
+
+.history th {
+  background-color: #fcfbfbf1;
+  color: rgba(14, 13, 13, 0.774);
+}
+
+
+/* ExpenseChart */
+.expenseChartContainer {
+  width: 30%; 
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  box-shadow: 0 4px 6px -6px #3b3232;
+}
+
+/* Updated styling for the search bar in History */
+
+.historyDiv .search {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .historyDiv .search {
+    width: auto;
+    margin: 5px 0 10px 65px;
+  }
+}
+
+.historyDiv .history table {
+  width: 100%; 
+  margin-right: 0;
+}
+
+.historyDiv .history th, .historyDiv .history td {
+  padding: 15px;
+  text-align: left;
+}
+
+.historyDiv .history th:last-child, .historyDiv .history td:last-child {
+  text-align: center; 
+}
+
+.historyDiv .history .delete-button {
+  margin-top: 8px;
+  margin-right: 0px;
+  background-color: #f5f2f2; 
+  color: rgba(10, 10, 10, 0.808); /* White text color */
+  padding: 8px 15px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 50px;
+
+}
+
+.historyDiv .history .delete-button:hover {
+  background-color: #b41d1d; /* Darker red on hover */
+}
+
+.expenseChartContainer {
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 6px -6px #81392c;
+}
+
+@media screen and (max-width: 584px) {
+  .expenseChartContainer {
+    width: 100%;
+  }
+}
+
+.download-button {
+  background-color: #2d27275d;
+  color: rgb(255, 247, 247);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+
+.download-button:hover {
+  background-color: #1f1c1cad;
+}
+
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .history table {
+    width: 100%; /* Use full width on smaller screens */
+    margin-right: 0;
+  }
+
+  .expenseChartContainer {
+    width: 100%; /* Use full width on smaller screens */
+    margin-top: 20px; /* Add some spacing on top for better separation */
+    
+  }
+}
+
+.login{
+  .App {
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);
+  }
+  
+  .auth-form-container, .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .auth-form-container {
+      padding: 5rem;
+      border: 1px solid white;
+      border-radius: 10px;
+      margin: 0.5rem;
+    }
+  }
+  
+  label {
+    text-align: left;
+    padding: 0.25rem 0;
+  }
+  
+  input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  button {
+    border: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #7439db;
+  }
+  
+  .link-btn {
+    background: none;
+    color: white;
+    text-decoration: underline;
   }
 }
