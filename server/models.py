@@ -75,6 +75,16 @@ class Transaction(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'description': self.description,
+            'amount': self.amount,
+            'date': self.date.strftime('%Y-%m-%d %H:%M:%S'),  # Convert datetime to string
+            'category_id': self.category_id,
+            'user_id': self.user_id
+        }
+    
     @validates('description')
     def validate_description(self, key, description):
         if not description:
@@ -85,8 +95,12 @@ class Transaction(db.Model):
     def validate_amount(self, key, amount):
         if not amount:
             raise ValueError('Amount is required.')
-        if amount <= 0:
-            raise ValueError('Amount must be greater than 0.')
+        try:
+            amount = float(amount)  # Convert amount to float
+            if amount <= 0:
+                raise ValueError('Amount must be greater than 0.')
+        except ValueError:
+            raise ValueError('Invalid amount format.')
         return amount
     
     serialize_rules = ('-user', '-category')

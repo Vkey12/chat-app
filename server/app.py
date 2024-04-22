@@ -28,11 +28,10 @@ jwt = JWTManager(app)
 migrate = Migrate(app, db)
 
 db.init_app(app)
+bcrypt.init_app(app)
 
-
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
@@ -68,3 +67,31 @@ def signup():
     return render_template('signup.html', form=form)
 
 
+
+@app.route('/transactions', methods=['GET', 'POST'])
+def transactions():
+    if request.method == 'GET':
+        transactions = Transaction.query.all()
+        return jsonify([trans.to_dict() for trans in transactions]), 200
+    elif request.method == 'POST':
+        data = request.json
+        new_trans = Transaction(description=data['description'], amount=data['amount'], category_id=data['category_id'], user_id=1)  # Assuming user_id is 1 for example
+        db.session.add(new_trans)
+        db.session.commit()
+        return jsonify(new_trans.to_dict()), 201
+
+@app.route('/transactions/<int:trans_id>', methods=['GET', 'PUT', 'DELETE'])
+def transaction(trans_id):
+    transaction = Transaction.query.get_or_404(trans_id)
+    if request.method == 'GET':
+        return jsonify(transaction.to_dict())
+    elif request.method == 'PUT':
+        data = request.json
+        transaction.description = data.get('description', transaction.description)
+        transaction.amount = data.get('amount', transaction.amount)
+        db.session.commit()
+        return jsonify(transaction.to_dict())
+    elif request.method == 'DELETE':
+        db.session.delete(transaction)
+        db.session.commit()
+        return jsonify({'message': 'deleted'}), 200
