@@ -17,7 +17,12 @@ import {
 import "./App.css";
 import "./sidebar.css";
 
+
+import Login from './components/Login';
+import Signup from './components/Signup';
+
 function App() {
+  const [currentForm, setCurrentForm] = useState('login');
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState(90000);
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,7 +34,7 @@ function App() {
   }, []);
 
   const fetchExpensesData = () => {
-    fetch("https://your-domain.com/transactions", {
+    fetch("http://127.0.0.1:5000/transactions", {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       },
@@ -40,7 +45,7 @@ function App() {
   };
 
   const addExpense = (expense) => {
-    fetch("https://your-domain.com/transactions", {
+    fetch("http://127.0.0.1:5000/transactions", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,7 +97,7 @@ function App() {
   }, [expenses, searchTerm]);
 
   const handleDelete = (trans_id) => {
-    fetch(`https://your-domain.com/transactions/${trans_id}`, {
+    fetch(`http://127.0.0.1:5000/transactions/${trans_id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
@@ -106,11 +111,21 @@ function App() {
     .catch((error) => console.error('Error:', error));
   };
 
+  const toggleForm = () => {
+    setCurrentForm(currentForm === 'login' ? 'signup' : 'login');
+  };
+
   const toggleSidebar = () => {
     setIsSidebarActive(!isSidebarActive);
   };
   return (
+
     <div className={`app-container ${isSidebarActive ? "sidebar-active" : ""}`}>
+      <div className="login">
+        {
+          currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Signup onFormSwitch={toggleForm} />
+        }
+      </div>
       {/* Sidebar */}
       <div className="sidebar">
         <div className="logo-details">
@@ -262,9 +277,16 @@ function App() {
             
         </div>
       </div>
+      <div>
+      
+
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
+
 
