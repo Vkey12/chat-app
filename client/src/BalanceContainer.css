@@ -1,6 +1,6 @@
 .BalanceContainer {
-  background-color: #b7dbe7;
-  color: #061065;
+  background-color: #2e3536a7;
+  color: #f8feff;
   text-align: left;
   max-height: 200px;
   width: 280px;
@@ -29,6 +29,6 @@
   display: inline-block;
   margin-top: 15px;
   font-size: 18px;
-  color: #434543;
+  color: #ffffff;
   margin-bottom: 20px;
 }

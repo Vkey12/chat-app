@@ -10,7 +10,7 @@
   position: fixed;
   height: 100%;
   width: 220px; /* Default width */
-  background: #190249;
+  background: #2d2c2c89;
   transition: all 0.5s ease;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .sidebar .logo-details .logo_name {
-  color: #fff;
+  color: #fffefe;
   font-size: 24px;
   font-weight: 500;
   margin-left: 10px;
@@ -53,7 +53,7 @@
 
 /* Default style for the first link */
 .sidebar .nav-links li:first-child div {
-  background: #7096d1;
+  background: #424141ab;
 }
 
 /* Updated styles for non-functional links */
@@ -66,16 +66,16 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .sidebar .nav-links li div.active {
-  background: #7096d1;
+  background: #383a3d;
 }
 
 .sidebar .nav-links li div:hover {
-  background: #7096d1;
+  background: #3b3d3f9d;
 }
 
 .sidebar .nav-links li i {

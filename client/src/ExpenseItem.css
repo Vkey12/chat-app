@@ -1,50 +1,50 @@
 .items button {
-    background-color: #FF9B9B;
-    height: 20px;
-    width: 60px;
-    border-radius: 3px;
-    border: 1px solid #861010;
-    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-    box-sizing: border-box;
-    color: #540000;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 400;
-    text-align: center;
-    margin: 10px;
-  }
+  background-color: #73787e;
+  height: 20px;
+  width: 60px;
+  border-radius: 3px;
+  border: 1px solid #861010;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #540000;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  margin: 10px;
+}
 .items button:hover,
-  .button:focus {
-  background-color: #EACAB3;
-  color: #774C2C;
-  }
+.button:focus {
+background-color: #EACAB3;
+color: #774C2C;
+}
 .items button:focus {
-  box-shadow: 0 0 0 2px rgba(255, 106, 0, .15);
-  }
+box-shadow: 0 0 0 2px rgba(255, 106, 0, .15);
+}
 .items button:active {
-  background-color: #E4BDA0;
-  box-shadow: none;
-  color: #774C2C;
-  }
+background-color: #433b3b;
+box-shadow: none;
+color: #2e383ab9;
+}
 
- .items td {
-    margin: 10px;
-    font-size: 22px;
-    padding: 0 25px 0 25px;
+.items td {
+  margin: 10px;
+  font-size: 22px;
+  padding: 0 25px 0 25px;
+  text-align: left;
+}
+@media screen and (max-width: 724px) {
+  .items td {
+    margin: 5px;
+    font-size: 15px;
+    padding: 0 5px 0 5px;
     text-align: left;
   }
-  @media screen and (max-width: 724px) {
-    .items td {
+}
+@media screen and (max-width: 584px) {
+  .items td{
       margin: 5px;
+      padding: 0;
       font-size: 15px;
-      padding: 0 5px 0 5px;
-      text-align: left;
-    }
   }
-  @media screen and (max-width: 584px) {
-    .items td{
-        margin: 5px;
-        padding: 0;
-        font-size: 15px;
-    }
-  }
+}
