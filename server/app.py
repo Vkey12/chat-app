@@ -30,7 +30,7 @@ migrate = Migrate(app, db)
 db.init_app(app)
 bcrypt.init_app(app)
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     data = request.get_json()
     email = data.get('email')
@@ -66,6 +66,8 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', form=form)
 
+
+
 @app.route('/transactions', methods=['GET', 'POST'])
 def transactions():
     if request.method == 'GET':
@@ -93,3 +95,4 @@ def transaction(trans_id):
         db.session.delete(transaction)
         db.session.commit()
         return jsonify({'message': 'deleted'}), 200
+    
